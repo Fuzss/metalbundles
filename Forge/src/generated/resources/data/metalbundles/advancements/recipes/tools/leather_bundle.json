@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:bundle"
+        "recipe": "metalbundles:leather_bundle"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:bundle"
+      "metalbundles:leather_bundle"
     ]
   }
 }

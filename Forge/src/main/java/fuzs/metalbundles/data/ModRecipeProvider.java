@@ -22,8 +22,8 @@ public class ModRecipeProvider extends AbstractRecipeProvider {
 
     @Override
     protected void buildRecipes(Consumer<FinishedRecipe> exporter) {
-        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, Items.BUNDLE)
-                .define('#', Items.RABBIT_HIDE)
+        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ModRegistry.LEATHER_BUNDLE_ITEM.get())
+                .define('#', Items.LEATHER)
                 .define('-', Items.STRING)
                 .pattern("-#-")
                 .pattern("# #")
