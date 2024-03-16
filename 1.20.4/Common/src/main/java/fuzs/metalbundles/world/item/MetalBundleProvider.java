@@ -1,6 +1,7 @@
 package fuzs.metalbundles.world.item;
 
 import fuzs.iteminteractions.api.v1.provider.BundleProvider;
+import net.minecraft.world.item.BundleItem;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.ItemStack;
 import org.jetbrains.annotations.Nullable;
@@ -12,12 +13,11 @@ public class MetalBundleProvider extends BundleProvider {
     }
 
     @Override
-    public int getCapacity() {
-        return super.getCapacity();
-    }
-
-    @Override
-    protected int getItemWeight(ItemStack stack) {
-        return MetalBundleItem.getItemWeight(stack);
+    public int getItemWeight(ItemStack itemStack) {
+        if (itemStack.getItem() instanceof MetalBundleItem item) {
+            return item.getCapacity(itemStack) / 16 + this.getContentWeight(itemStack, null);
+        } else {
+            return super.getItemWeight(itemStack);
+        }
     }
 }

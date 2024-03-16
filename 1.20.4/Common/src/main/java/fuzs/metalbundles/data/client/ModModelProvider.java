@@ -46,7 +46,7 @@ public class ModModelProvider extends AbstractModelProvider {
                 builder.output
         );
         ItemModelProperties itemModelProperties = ItemModelProperties.singleOverride(modelLocation,
-                MetalBundlesClient.ITEM_MODEL_PROPETY_FILLED,
+                MetalBundlesClient.ITEM_MODEL_PROPERTY_FILLED,
                 1.0F
         );
         generateFlatItem(item,
