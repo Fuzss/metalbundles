@@ -5,11 +5,9 @@ import fuzs.metalbundles.init.ModRegistry;
 import fuzs.metalbundles.world.item.MetalBundleItem;
 import fuzs.puzzleslib.api.client.core.v1.ClientModConstructor;
 import fuzs.puzzleslib.api.client.core.v1.context.ItemModelPropertiesContext;
-import fuzs.puzzleslib.api.core.v1.Proxy;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 
 public class MetalBundlesClient implements ClientModConstructor {
