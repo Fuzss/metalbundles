@@ -1,0 +1,23 @@
+{
+  "type": "metalbundles:copy_tag_shaped_recipe",
+  "category": "equipment",
+  "copy_from": {
+    "item": "metalbundles:copper_bundle"
+  },
+  "key": {
+    "#": {
+      "item": "minecraft:iron_ingot"
+    },
+    "X": {
+      "item": "metalbundles:copper_bundle"
+    }
+  },
+  "pattern": [
+    " # ",
+    "#X#",
+    " # "
+  ],
+  "result": {
+    "item": "metalbundles:iron_bundle"
+  }
+}
