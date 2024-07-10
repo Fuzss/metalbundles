@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "metalbundles:iron_bundle"
-            ]
+            "items": "metalbundles:iron_bundle"
           }
         ]
       },

@@ -1,12 +1,12 @@
 package fuzs.metalbundles;
 
-import fuzs.iteminteractions.api.v1.ItemContainerProviderBuilder;
-import fuzs.iteminteractions.api.v1.ItemContainerProviderSerializers;
+import fuzs.metalbundles.config.ServerConfig;
 import fuzs.metalbundles.init.ModRegistry;
-import fuzs.metalbundles.world.item.MetalBundleProvider;
+import fuzs.puzzleslib.api.config.v3.ConfigHolder;
 import fuzs.puzzleslib.api.core.v1.ContentRegistrationFlags;
 import fuzs.puzzleslib.api.core.v1.ModConstructor;
 import fuzs.puzzleslib.api.core.v1.context.CreativeModeTabContext;
+import fuzs.puzzleslib.api.core.v1.utility.ResourceLocationHelper;
 import fuzs.puzzleslib.api.item.v2.CreativeModeTabConfigurator;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
@@ -18,21 +18,11 @@ public class MetalBundles implements ModConstructor {
     public static final String MOD_NAME = "Metal Bundles";
     public static final Logger LOGGER = LoggerFactory.getLogger(MOD_NAME);
 
+    public static final ConfigHolder CONFIG = ConfigHolder.builder(MOD_ID).server(ServerConfig.class);
+
     @Override
     public void onConstructMod() {
         ModRegistry.touch();
-        registerSerializers();
-    }
-
-    private static void registerSerializers() {
-        ItemContainerProviderSerializers.register(MetalBundleProvider.class, id("bundle"), jsonElement -> {
-            ItemContainerProviderBuilder builder = new ItemContainerProviderBuilder(jsonElement);
-            return new MetalBundleProvider(builder.capacity, builder.dyeColor);
-        });
-    }
-
-    public static ResourceLocation id(String path) {
-        return new ResourceLocation(MOD_ID, path);
     }
 
     @Override
@@ -51,6 +41,10 @@ public class MetalBundles implements ModConstructor {
 
     @Override
     public ContentRegistrationFlags[] getContentRegistrationFlags() {
-        return new ContentRegistrationFlags[]{ContentRegistrationFlags.COPY_TAG_RECIPES};
+        return new ContentRegistrationFlags[]{ContentRegistrationFlags.COPY_RECIPES};
+    }
+
+    public static ResourceLocation id(String path) {
+        return ResourceLocationHelper.fromNamespaceAndPath(MOD_ID, path);
     }
 }

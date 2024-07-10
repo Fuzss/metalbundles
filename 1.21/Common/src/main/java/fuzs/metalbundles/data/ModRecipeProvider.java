@@ -9,6 +9,7 @@ import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.crafting.Ingredient;
 
 public class ModRecipeProvider extends AbstractRecipeProvider {
 
@@ -27,14 +28,14 @@ public class ModRecipeProvider extends AbstractRecipeProvider {
                 .unlockedBy(getHasName(Items.STRING), has(Items.STRING))
                 .save(recipeOutput);
         CopyTagShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ModRegistry.COPPER_BUNDLE_ITEM.value())
-                .define('X', ModRegistry.LEATHER_BUNDLE_ITEM.value())
+                .define('X', Ingredient.of(ModRegistry.LEATHER_BUNDLE_ITEM.value(), Items.BUNDLE))
                 .define('#', Items.COPPER_INGOT)
                 .copyFrom(ModRegistry.LEATHER_BUNDLE_ITEM.value())
                 .pattern(" # ")
                 .pattern("#X#")
                 .pattern(" # ")
-                .unlockedBy(getHasName(ModRegistry.LEATHER_BUNDLE_ITEM.value()),
-                        has(ModRegistry.LEATHER_BUNDLE_ITEM.value())
+                .unlockedBy(getHasName(ModRegistry.LEATHER_BUNDLE_ITEM.value(), Items.BUNDLE),
+                        has(ModRegistry.LEATHER_BUNDLE_ITEM.value(), Items.BUNDLE)
                 )
                 .save(recipeOutput);
         CopyTagShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ModRegistry.IRON_BUNDLE_ITEM.value())

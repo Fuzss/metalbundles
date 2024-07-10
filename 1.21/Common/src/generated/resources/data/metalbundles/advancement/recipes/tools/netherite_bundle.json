@@ -1,13 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_leather_bundle": {
+    "has_diamond_bundle": {
       "conditions": {
         "items": [
           {
-            "items": [
-              "metalbundles:leather_bundle"
-            ]
+            "items": "metalbundles:diamond_bundle"
           }
         ]
       },
@@ -15,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "metalbundles:copper_bundle"
+        "recipe": "metalbundles:netherite_bundle"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -23,12 +21,12 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_leather_bundle"
+      "has_diamond_bundle"
     ]
   ],
   "rewards": {
     "recipes": [
-      "metalbundles:copper_bundle"
+      "metalbundles:netherite_bundle"
     ]
   }
 }

@@ -1,5 +1,5 @@
 {
-  "type": "metalbundles:copy_tag_shapeless_recipe",
+  "type": "metalbundles:copy_components_shapeless_recipe",
   "category": "equipment",
   "copy_from": {
     "item": "metalbundles:diamond_bundle"
@@ -13,6 +13,7 @@
     }
   ],
   "result": {
-    "item": "metalbundles:netherite_bundle"
+    "count": 1,
+    "id": "metalbundles:netherite_bundle"
   }
 }

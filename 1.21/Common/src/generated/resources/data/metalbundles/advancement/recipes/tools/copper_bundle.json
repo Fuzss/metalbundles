@@ -1,12 +1,13 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_golden_bundle": {
+    "has_leather_bundle_and_bundle": {
       "conditions": {
         "items": [
           {
             "items": [
-              "metalbundles:golden_bundle"
+              "metalbundles:leather_bundle",
+              "minecraft:bundle"
             ]
           }
         ]
@@ -15,7 +16,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "metalbundles:diamond_bundle"
+        "recipe": "metalbundles:copper_bundle"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -23,12 +24,12 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_golden_bundle"
+      "has_leather_bundle_and_bundle"
     ]
   ],
   "rewards": {
     "recipes": [
-      "metalbundles:diamond_bundle"
+      "metalbundles:copper_bundle"
     ]
   }
 }

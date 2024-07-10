@@ -1,13 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_diamond_bundle": {
+    "has_copper_bundle": {
       "conditions": {
         "items": [
           {
-            "items": [
-              "metalbundles:diamond_bundle"
-            ]
+            "items": "metalbundles:copper_bundle"
           }
         ]
       },
@@ -15,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "metalbundles:netherite_bundle"
+        "recipe": "metalbundles:iron_bundle"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -23,12 +21,12 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_diamond_bundle"
+      "has_copper_bundle"
     ]
   ],
   "rewards": {
     "recipes": [
-      "metalbundles:netherite_bundle"
+      "metalbundles:iron_bundle"
     ]
   }
 }
