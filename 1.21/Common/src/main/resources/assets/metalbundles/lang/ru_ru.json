@@ -5,5 +5,6 @@
   "item.metalbundles.iron_bundle": "Железный мешок",
   "item.metalbundles.leather_bundle": "Кожаный мешок",
   "item.metalbundles.netherite_bundle": "Незеритовый мешок",
+  "item.minecraft.bundle.capacity": "Вместиость: %s%%",
   "itemGroup.metalbundles.main": "Металлические мешки"
 }
