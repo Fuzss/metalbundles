@@ -1,19 +1,7 @@
 {
-  "type": "metalbundles:copy_components_shapeless_recipe",
+  "type": "minecraft:crafting_transmute",
   "category": "equipment",
-  "copy_from": {
-    "item": "metalbundles:diamond_bundle"
-  },
-  "ingredients": [
-    {
-      "item": "metalbundles:diamond_bundle"
-    },
-    {
-      "item": "minecraft:netherite_ingot"
-    }
-  ],
-  "result": {
-    "count": 1,
-    "id": "metalbundles:netherite_bundle"
-  }
+  "input": "metalbundles:diamond_bundle",
+  "material": "minecraft:netherite_ingot",
+  "result": "metalbundles:netherite_bundle"
 }

@@ -1,14 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_leather_bundle_and_bundle": {
+    "has_bundle": {
       "conditions": {
         "items": [
           {
-            "items": [
-              "metalbundles:leather_bundle",
-              "minecraft:bundle"
-            ]
+            "items": "minecraft:bundle"
           }
         ]
       },
@@ -24,7 +21,7 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_leather_bundle_and_bundle"
+      "has_bundle"
     ]
   ],
   "rewards": {

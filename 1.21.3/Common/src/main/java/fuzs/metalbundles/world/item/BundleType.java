@@ -9,7 +9,6 @@ import net.minecraft.world.level.material.MapColor;
 import java.util.Locale;
 
 public enum BundleType implements StringRepresentable {
-    LEATHER(MapColor.COLOR_BROWN),
     COPPER(MapColor.COLOR_ORANGE),
     IRON(MapColor.METAL),
     GOLDEN(DyeColor.YELLOW),

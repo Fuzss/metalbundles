@@ -4,36 +4,25 @@ import fuzs.iteminteractions.api.v1.ItemContentsHelper;
 import fuzs.iteminteractions.api.v1.provider.ItemContentsBehavior;
 import fuzs.metalbundles.init.ModRegistry;
 import fuzs.metalbundles.world.item.container.MetalBundleProvider;
-import net.minecraft.ChatFormatting;
 import net.minecraft.core.component.DataComponents;
-import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
-import net.minecraft.world.item.*;
+import net.minecraft.world.item.BundleItem;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.component.BundleContents;
 import org.apache.commons.lang3.math.Fraction;
-
-import java.text.DecimalFormat;
-import java.util.List;
 
 public class MetalBundleItem extends BundleItem {
     public static final String KEY_BUNDLE_CAPACITY = Items.BUNDLE.getDescriptionId() + ".capacity";
 
-    public MetalBundleItem(Properties properties) {
-        super(properties);
+    public MetalBundleItem(ResourceLocation openFrontModel, ResourceLocation openBackModel, Properties properties) {
+        super(openFrontModel, openBackModel, properties);
     }
 
     @Override
     public int getBarWidth(ItemStack itemStack) {
         return Math.min(1 + Mth.mulAndTruncate(getActualWeight(itemStack), 12), 13);
-    }
-
-    @Override
-    public void appendHoverText(ItemStack itemStack, Item.TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
-        Fraction weight = getActualWeight(itemStack);
-        if (!Fraction.ZERO.equals(weight)) {
-            String s = new DecimalFormat("0").format(weight.floatValue() * 100.0F);
-            tooltipComponents.add(Component.translatable(KEY_BUNDLE_CAPACITY, s).withStyle(ChatFormatting.GRAY));
-        }
     }
 
     public static Fraction getActualWeight(ItemStack itemStack) {

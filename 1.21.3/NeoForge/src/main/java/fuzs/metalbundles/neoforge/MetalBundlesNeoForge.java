@@ -2,9 +2,8 @@ package fuzs.metalbundles.neoforge;
 
 import fuzs.metalbundles.MetalBundles;
 import fuzs.metalbundles.data.ModItemContentsProvider;
+import fuzs.metalbundles.data.ModItemTagProvider;
 import fuzs.metalbundles.data.ModRecipeProvider;
-import fuzs.metalbundles.data.client.ModLanguageProvider;
-import fuzs.metalbundles.data.client.ModModelProvider;
 import fuzs.puzzleslib.api.core.v1.ModConstructor;
 import fuzs.puzzleslib.neoforge.api.data.v2.core.DataProviderHelper;
 import net.neoforged.fml.common.Mod;
@@ -16,9 +15,7 @@ public class MetalBundlesNeoForge {
         ModConstructor.construct(MetalBundles.MOD_ID, MetalBundles::new);
         DataProviderHelper.registerDataProviders(MetalBundles.MOD_ID,
                 ModItemContentsProvider::new,
-                ModLanguageProvider::new,
-                ModModelProvider::new,
-                ModRecipeProvider::new
-        );
+                ModRecipeProvider::new,
+                ModItemTagProvider::new);
     }
 }

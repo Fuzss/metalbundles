@@ -1,0 +1,9 @@
+{
+  "values": [
+    "metalbundles:copper_bundle",
+    "metalbundles:iron_bundle",
+    "metalbundles:golden_bundle",
+    "metalbundles:diamond_bundle",
+    "metalbundles:netherite_bundle"
+  ]
+}

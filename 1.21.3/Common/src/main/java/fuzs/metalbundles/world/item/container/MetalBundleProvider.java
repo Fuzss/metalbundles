@@ -18,11 +18,13 @@ import java.util.Optional;
 public class MetalBundleProvider extends BundleProvider {
     public static final MapCodec<MetalBundleProvider> CODEC = RecordCodecBuilder.mapCodec(instance -> {
         return instance.group(BundleType.CODEC.fieldOf("bundle_type").forGetter(provider -> provider.bundleType),
-                backgroundColorCodec(),
-                disallowedItemsCodec()
-        ).apply(instance, (BundleType bundleType, Optional<DyeBackedColor> dyeColor, HolderSet<Item> disallowedItems) -> {
-            return new MetalBundleProvider(bundleType, dyeColor.orElse(null)).disallowedItems(disallowedItems);
-        });
+                        backgroundColorCodec(),
+                        disallowedItemsCodec())
+                .apply(instance,
+                        (BundleType bundleType, Optional<DyeBackedColor> dyeColor, HolderSet<Item> disallowedItems) -> {
+                            return new MetalBundleProvider(bundleType, dyeColor.orElse(null)).disallowedItems(
+                                    disallowedItems);
+                        });
     });
 
     private final BundleType bundleType;
@@ -40,7 +42,6 @@ public class MetalBundleProvider extends BundleProvider {
     @Override
     public Fraction getCapacityMultiplier() {
         int capacityMultiplier = switch (this.bundleType) {
-            case LEATHER -> MetalBundles.CONFIG.get(ServerConfig.class).leatherCapacityMultiplier;
             case COPPER -> MetalBundles.CONFIG.get(ServerConfig.class).copperCapacityMultiplier;
             case IRON -> MetalBundles.CONFIG.get(ServerConfig.class).ironCapacityMultiplier;
             case GOLDEN -> MetalBundles.CONFIG.get(ServerConfig.class).goldenCapacityMultiplier;

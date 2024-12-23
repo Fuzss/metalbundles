@@ -1,29 +1,7 @@
 {
-  "type": "metalbundles:copy_components_shaped_recipe",
+  "type": "minecraft:crafting_transmute",
   "category": "equipment",
-  "copy_from": {
-    "item": "metalbundles:leather_bundle"
-  },
-  "key": {
-    "#": {
-      "item": "minecraft:copper_ingot"
-    },
-    "X": [
-      {
-        "item": "metalbundles:leather_bundle"
-      },
-      {
-        "item": "minecraft:bundle"
-      }
-    ]
-  },
-  "pattern": [
-    " # ",
-    "#X#",
-    " # "
-  ],
-  "result": {
-    "count": 1,
-    "id": "metalbundles:copper_bundle"
-  }
+  "input": "minecraft:bundle",
+  "material": "minecraft:copper_ingot",
+  "result": "metalbundles:copper_bundle"
 }

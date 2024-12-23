@@ -3,7 +3,6 @@ package fuzs.metalbundles;
 import fuzs.metalbundles.config.ServerConfig;
 import fuzs.metalbundles.init.ModRegistry;
 import fuzs.puzzleslib.api.config.v3.ConfigHolder;
-import fuzs.puzzleslib.api.core.v1.ContentRegistrationFlags;
 import fuzs.puzzleslib.api.core.v1.ModConstructor;
 import fuzs.puzzleslib.api.core.v1.context.CreativeModeTabContext;
 import fuzs.puzzleslib.api.core.v1.utility.ResourceLocationHelper;
@@ -22,7 +21,7 @@ public class MetalBundles implements ModConstructor {
 
     @Override
     public void onConstructMod() {
-        ModRegistry.touch();
+        ModRegistry.bootstrap();
     }
 
     @Override
@@ -30,18 +29,12 @@ public class MetalBundles implements ModConstructor {
         context.registerCreativeModeTab(CreativeModeTabConfigurator.from(MOD_ID)
                 .icon(() -> new ItemStack(ModRegistry.IRON_BUNDLE_ITEM.value()))
                 .displayItems((itemDisplayParameters, output) -> {
-                    output.accept(ModRegistry.LEATHER_BUNDLE_ITEM.value());
                     output.accept(ModRegistry.COPPER_BUNDLE_ITEM.value());
                     output.accept(ModRegistry.IRON_BUNDLE_ITEM.value());
                     output.accept(ModRegistry.GOLDEN_BUNDLE_ITEM.value());
                     output.accept(ModRegistry.DIAMOND_BUNDLE_ITEM.value());
                     output.accept(ModRegistry.NETHERITE_BUNDLE_ITEM.value());
                 }));
-    }
-
-    @Override
-    public ContentRegistrationFlags[] getContentRegistrationFlags() {
-        return new ContentRegistrationFlags[]{ContentRegistrationFlags.COPY_RECIPES};
     }
 
     public static ResourceLocation id(String path) {

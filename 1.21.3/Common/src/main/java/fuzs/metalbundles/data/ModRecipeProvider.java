@@ -3,11 +3,10 @@ package fuzs.metalbundles.data;
 import fuzs.metalbundles.init.ModRegistry;
 import fuzs.puzzleslib.api.data.v2.AbstractRecipeProvider;
 import fuzs.puzzleslib.api.data.v2.core.DataProviderContext;
-import fuzs.puzzleslib.api.data.v2.recipes.CopyComponentsShapedRecipeBuilder;
-import fuzs.puzzleslib.api.data.v2.recipes.CopyComponentsShapelessRecipeBuilder;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeOutput;
-import net.minecraft.data.recipes.ShapedRecipeBuilder;
+import net.minecraft.data.recipes.TransmuteRecipeBuilder;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 
@@ -19,46 +18,28 @@ public class ModRecipeProvider extends AbstractRecipeProvider {
 
     @Override
     public void addRecipes(RecipeOutput recipeOutput) {
-        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ModRegistry.LEATHER_BUNDLE_ITEM.value()).define('#',
-                Items.LEATHER
-        ).define('-', Items.STRING).pattern("-#-").pattern("# #").pattern("###").unlockedBy(getHasName(Items.STRING),
-                has(Items.STRING)
-        ).save(recipeOutput);
-        CopyComponentsShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ModRegistry.COPPER_BUNDLE_ITEM.value()).define(
-                'X', Ingredient.of(ModRegistry.LEATHER_BUNDLE_ITEM.value(), Items.BUNDLE)).define('#',
-                Items.COPPER_INGOT
-        ).copyFrom(ModRegistry.LEATHER_BUNDLE_ITEM.value()).pattern(" # ").pattern("#X#").pattern(" # ").unlockedBy(
-                getHasName(ModRegistry.LEATHER_BUNDLE_ITEM.value(), Items.BUNDLE),
-                has(ModRegistry.LEATHER_BUNDLE_ITEM.value(), Items.BUNDLE)
-        ).save(recipeOutput);
-        CopyComponentsShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ModRegistry.IRON_BUNDLE_ITEM.value())
-                .define('X', ModRegistry.COPPER_BUNDLE_ITEM.value())
-                .define('#', Items.IRON_INGOT)
-                .copyFrom(ModRegistry.COPPER_BUNDLE_ITEM.value())
-                .pattern(" # ")
-                .pattern("#X#")
-                .pattern(" # ")
-                .unlockedBy(getHasName(ModRegistry.COPPER_BUNDLE_ITEM.value()),
-                        has(ModRegistry.COPPER_BUNDLE_ITEM.value())
-                )
-                .save(recipeOutput);
-        CopyComponentsShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ModRegistry.GOLDEN_BUNDLE_ITEM.value()).define(
-                'X', ModRegistry.IRON_BUNDLE_ITEM.value()).define('#', Items.GOLD_INGOT).copyFrom(
-                ModRegistry.IRON_BUNDLE_ITEM.value()).pattern(" # ").pattern("#X#").pattern(" # ").unlockedBy(
-                getHasName(ModRegistry.IRON_BUNDLE_ITEM.value()), has(ModRegistry.IRON_BUNDLE_ITEM.value())).save(
-                recipeOutput);
-        CopyComponentsShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ModRegistry.DIAMOND_BUNDLE_ITEM.value()).define(
-                'X', ModRegistry.GOLDEN_BUNDLE_ITEM.value()).define('#', Items.DIAMOND).copyFrom(
-                ModRegistry.GOLDEN_BUNDLE_ITEM.value()).pattern(" # ").pattern("#X#").pattern(" # ").unlockedBy(
-                getHasName(ModRegistry.GOLDEN_BUNDLE_ITEM.value()), has(ModRegistry.GOLDEN_BUNDLE_ITEM.value())).save(
-                recipeOutput);
-        CopyComponentsShapelessRecipeBuilder.shapeless(RecipeCategory.TOOLS, ModRegistry.NETHERITE_BUNDLE_ITEM.value())
-                .requires(ModRegistry.DIAMOND_BUNDLE_ITEM.value())
-                .requires(Items.NETHERITE_INGOT)
-                .copyFrom(ModRegistry.DIAMOND_BUNDLE_ITEM.value())
-                .unlockedBy(getHasName(ModRegistry.DIAMOND_BUNDLE_ITEM.value()),
-                        has(ModRegistry.DIAMOND_BUNDLE_ITEM.value())
-                )
+        this.bundleRecipe(recipeOutput, Items.BUNDLE, Items.COPPER_INGOT, ModRegistry.COPPER_BUNDLE_ITEM.value());
+        this.bundleRecipe(recipeOutput,
+                ModRegistry.COPPER_BUNDLE_ITEM.value(),
+                Items.IRON_INGOT,
+                ModRegistry.IRON_BUNDLE_ITEM.value());
+        this.bundleRecipe(recipeOutput,
+                ModRegistry.IRON_BUNDLE_ITEM.value(),
+                Items.GOLD_INGOT,
+                ModRegistry.GOLDEN_BUNDLE_ITEM.value());
+        this.bundleRecipe(recipeOutput,
+                ModRegistry.GOLDEN_BUNDLE_ITEM.value(),
+                Items.DIAMOND,
+                ModRegistry.DIAMOND_BUNDLE_ITEM.value());
+        this.bundleRecipe(recipeOutput,
+                ModRegistry.DIAMOND_BUNDLE_ITEM.value(),
+                Items.NETHERITE_INGOT,
+                ModRegistry.NETHERITE_BUNDLE_ITEM.value());
+    }
+
+    private void bundleRecipe(RecipeOutput recipeOutput, Item input, Item material, Item result) {
+        TransmuteRecipeBuilder.transmute(RecipeCategory.TOOLS, Ingredient.of(input), Ingredient.of(material), result)
+                .unlockedBy(getHasName(input), this.has(input))
                 .save(recipeOutput);
     }
 }

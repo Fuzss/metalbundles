@@ -12,37 +12,26 @@ import net.minecraft.world.item.component.BundleContents;
 
 public class ModRegistry {
     static final RegistryManager REGISTRIES = RegistryManager.from(MetalBundles.MOD_ID);
-    public static final Holder.Reference<Item> LEATHER_BUNDLE_ITEM = REGISTRIES.registerItem("leather_bundle",
-            () -> new MetalBundleItem(new Item.Properties().stacksTo(1)
-                    .component(DataComponents.BUNDLE_CONTENTS, BundleContents.EMPTY))
-    );
-    public static final Holder.Reference<Item> COPPER_BUNDLE_ITEM = REGISTRIES.registerItem("copper_bundle",
-            () -> new MetalBundleItem(new Item.Properties().stacksTo(1)
-                    .component(DataComponents.BUNDLE_CONTENTS, BundleContents.EMPTY))
-    );
-    public static final Holder.Reference<Item> IRON_BUNDLE_ITEM = REGISTRIES.registerItem("iron_bundle",
-            () -> new MetalBundleItem(new Item.Properties().stacksTo(1)
-                    .component(DataComponents.BUNDLE_CONTENTS, BundleContents.EMPTY))
-    );
-    public static final Holder.Reference<Item> GOLDEN_BUNDLE_ITEM = REGISTRIES.registerItem("golden_bundle",
-            () -> new MetalBundleItem(new Item.Properties().stacksTo(1)
-                    .component(DataComponents.BUNDLE_CONTENTS, BundleContents.EMPTY))
-    );
-    public static final Holder.Reference<Item> DIAMOND_BUNDLE_ITEM = REGISTRIES.registerItem("diamond_bundle",
-            () -> new MetalBundleItem(new Item.Properties().stacksTo(1)
-                    .component(DataComponents.BUNDLE_CONTENTS, BundleContents.EMPTY))
-    );
-    public static final Holder.Reference<Item> NETHERITE_BUNDLE_ITEM = REGISTRIES.registerItem("netherite_bundle",
-            () -> new MetalBundleItem(new Item.Properties().stacksTo(1)
-                    .component(DataComponents.BUNDLE_CONTENTS, BundleContents.EMPTY))
-    );
+    public static final Holder.Reference<Item> COPPER_BUNDLE_ITEM = registerMetalBundleItem("copper_bundle");
+    public static final Holder.Reference<Item> IRON_BUNDLE_ITEM = registerMetalBundleItem("iron_bundle");
+    public static final Holder.Reference<Item> GOLDEN_BUNDLE_ITEM = registerMetalBundleItem("golden_bundle");
+    public static final Holder.Reference<Item> DIAMOND_BUNDLE_ITEM = registerMetalBundleItem("diamond_bundle");
+    public static final Holder.Reference<Item> NETHERITE_BUNDLE_ITEM = registerMetalBundleItem("netherite_bundle");
     public static final Holder.Reference<ItemContentsProvider.Type> METAL_BUNDLE_ITEM_CONTENTS_PROVIDER_TYPE = REGISTRIES.register(
             ItemContentsProvider.REGISTRY_KEY,
             "metal_bundle",
-            () -> new ItemContentsProvider.Type(MetalBundleProvider.CODEC)
-    );
+            () -> new ItemContentsProvider.Type(MetalBundleProvider.CODEC));
 
-    public static void touch() {
+    public static void bootstrap() {
         // NO-OP
+    }
+
+    private static Holder.Reference<Item> registerMetalBundleItem(String path) {
+        return REGISTRIES.registerItem(path,
+                (Item.Properties properties) -> new MetalBundleItem(MetalBundles.id(path + "_open_front"),
+                        MetalBundles.id(path + "_open_back"),
+                        properties),
+                () -> new Item.Properties().stacksTo(1)
+                        .component(DataComponents.BUNDLE_CONTENTS, BundleContents.EMPTY));
     }
 }
