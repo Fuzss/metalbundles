@@ -1,21 +1,16 @@
 package fuzs.metalbundles.data.client;
 
-import com.google.gson.JsonElement;
 import fuzs.metalbundles.init.ModRegistry;
 import fuzs.puzzleslib.api.client.data.v2.AbstractModelProvider;
 import fuzs.puzzleslib.api.data.v2.core.DataProviderContext;
 import net.minecraft.data.models.ItemModelGenerators;
-import net.minecraft.data.models.model.ModelTemplate;
 import net.minecraft.data.models.model.ModelTemplates;
-import net.minecraft.data.models.model.TextureMapping;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.BundleItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 
-import java.util.function.BiConsumer;
 import java.util.function.Function;
-import java.util.function.Supplier;
 
 public class ModModelProvider extends AbstractModelProvider {
 
@@ -49,12 +44,5 @@ public class ModModelProvider extends AbstractModelProvider {
                 modelGetter.apply((BundleItem) itemTemplate),
                 ModelTemplates.FLAT_ITEM,
                 builder.output);
-    }
-
-    @Deprecated(forRemoval = true)
-    public static ResourceLocation generateFlatItem(ResourceLocation resourceLocation, ResourceLocation layerResourceLocation, ModelTemplate modelTemplate, BiConsumer<ResourceLocation, Supplier<JsonElement>> modelOutput) {
-        return modelTemplate.create(decorateItemModelLocation(resourceLocation),
-                TextureMapping.layer0(decorateItemModelLocation(layerResourceLocation)),
-                modelOutput);
     }
 }
