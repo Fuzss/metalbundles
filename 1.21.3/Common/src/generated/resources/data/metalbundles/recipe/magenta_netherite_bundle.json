@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:crafting_transmute",
+  "category": "equipment",
+  "group": "netherite_bundles",
+  "input": "metalbundles:magenta_diamond_bundle",
+  "material": "minecraft:netherite_ingot",
+  "result": "metalbundles:magenta_netherite_bundle"
+}

@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "minecraft:item/light_gray_bundle",
+    "layer1": "metalbundles:item/netherite_bundle_string"
+  }
+}

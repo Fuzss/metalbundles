@@ -7,9 +7,9 @@ import fuzs.iteminteractions.api.v1.provider.impl.BundleProvider;
 import fuzs.metalbundles.MetalBundles;
 import fuzs.metalbundles.config.ServerConfig;
 import fuzs.metalbundles.init.ModRegistry;
-import fuzs.metalbundles.world.item.BundleType;
 import net.minecraft.core.HolderSet;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
 import org.apache.commons.lang3.math.Fraction;
 import org.jetbrains.annotations.Nullable;
 
@@ -17,21 +17,14 @@ import java.util.Optional;
 
 public class MetalBundleProvider extends BundleProvider {
     public static final MapCodec<MetalBundleProvider> CODEC = RecordCodecBuilder.mapCodec(instance -> {
-        return instance.group(BundleType.CODEC.fieldOf("bundle_type").forGetter(provider -> provider.bundleType),
-                        backgroundColorCodec(),
-                        disallowedItemsCodec())
-                .apply(instance,
-                        (BundleType bundleType, Optional<DyeBackedColor> dyeColor, HolderSet<Item> disallowedItems) -> {
-                            return new MetalBundleProvider(bundleType, dyeColor.orElse(null)).disallowedItems(
-                                    disallowedItems);
-                        });
+        return instance.group(backgroundColorCodec(), disallowedItemsCodec())
+                .apply(instance, (Optional<DyeBackedColor> dyeColor, HolderSet<Item> disallowedItems) -> {
+                    return new MetalBundleProvider(dyeColor.orElse(null)).disallowedItems(disallowedItems);
+                });
     });
 
-    private final BundleType bundleType;
-
-    public MetalBundleProvider(BundleType bundleType, @Nullable DyeBackedColor dyeColor) {
+    public MetalBundleProvider(@Nullable DyeBackedColor dyeColor) {
         super(dyeColor);
-        this.bundleType = bundleType;
     }
 
     @Override
@@ -40,15 +33,29 @@ public class MetalBundleProvider extends BundleProvider {
     }
 
     @Override
-    public Fraction getCapacityMultiplier() {
-        int capacityMultiplier = switch (this.bundleType) {
-            case COPPER -> MetalBundles.CONFIG.get(ServerConfig.class).copperCapacityMultiplier;
-            case IRON -> MetalBundles.CONFIG.get(ServerConfig.class).ironCapacityMultiplier;
-            case GOLDEN -> MetalBundles.CONFIG.get(ServerConfig.class).goldenCapacityMultiplier;
-            case DIAMOND -> MetalBundles.CONFIG.get(ServerConfig.class).diamondCapacityMultiplier;
-            case NETHERITE -> MetalBundles.CONFIG.get(ServerConfig.class).netheriteCapacityMultiplier;
-        };
-        return Fraction.getFraction(capacityMultiplier, 1);
+    public Fraction getCapacityMultiplier(ItemStack containerStack) {
+        int capacityMultiplier = this.getConfigurableCapacityMultiplier(containerStack);
+        if (capacityMultiplier != -1) {
+            return Fraction.getFraction(capacityMultiplier, 1);
+        } else {
+            return super.getCapacityMultiplier(containerStack);
+        }
+    }
+
+    private int getConfigurableCapacityMultiplier(ItemStack containerStack) {
+        if (containerStack.is(ModRegistry.COPPER_BUNDLES_ITEM_TAG_KEY)) {
+            return MetalBundles.CONFIG.get(ServerConfig.class).copperCapacityMultiplier;
+        } else if (containerStack.is(ModRegistry.IRON_BUNDLES_ITEM_TAG_KEY)) {
+            return MetalBundles.CONFIG.get(ServerConfig.class).ironCapacityMultiplier;
+        } else if (containerStack.is(ModRegistry.GOLDEN_BUNDLES_ITEM_TAG_KEY)) {
+            return MetalBundles.CONFIG.get(ServerConfig.class).goldenCapacityMultiplier;
+        } else if (containerStack.is(ModRegistry.DIAMOND_BUNDLES_ITEM_TAG_KEY)) {
+            return MetalBundles.CONFIG.get(ServerConfig.class).diamondCapacityMultiplier;
+        } else if (containerStack.is(ModRegistry.NETHERITE_BUNDLES_ITEM_TAG_KEY)) {
+            return MetalBundles.CONFIG.get(ServerConfig.class).netheriteCapacityMultiplier;
+        } else {
+            return -1;
+        }
     }
 
     @Override

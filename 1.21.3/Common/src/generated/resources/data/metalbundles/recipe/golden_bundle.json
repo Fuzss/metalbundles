@@ -1,7 +1,0 @@
-{
-  "type": "minecraft:crafting_transmute",
-  "category": "equipment",
-  "input": "metalbundles:iron_bundle",
-  "material": "minecraft:gold_ingot",
-  "result": "metalbundles:golden_bundle"
-}

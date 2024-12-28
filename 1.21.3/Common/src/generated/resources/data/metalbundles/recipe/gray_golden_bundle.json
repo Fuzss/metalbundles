@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:crafting_transmute",
+  "category": "equipment",
+  "group": "golden_bundles",
+  "input": "metalbundles:gray_iron_bundle",
+  "material": "minecraft:gold_ingot",
+  "result": "metalbundles:gray_golden_bundle"
+}
