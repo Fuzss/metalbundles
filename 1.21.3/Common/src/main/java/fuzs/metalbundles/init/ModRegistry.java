@@ -16,6 +16,7 @@ import net.minecraft.world.item.component.BundleContents;
 
 import java.util.EnumMap;
 import java.util.Map;
+import java.util.function.Supplier;
 
 public class ModRegistry {
     static final RegistryManager REGISTRIES = RegistryManager.from(MetalBundles.MOD_ID);
@@ -27,7 +28,8 @@ public class ModRegistry {
     public static final Map<DyeColor, Holder.Reference<Item>> DIAMOND_BUNDLE_ITEMS = registerMetalBundleItems(
             "diamond_bundle");
     public static final Map<DyeColor, Holder.Reference<Item>> NETHERITE_BUNDLE_ITEMS = registerMetalBundleItems(
-            "netherite_bundle");
+            "netherite_bundle",
+            () -> new Item.Properties().fireResistant());
     public static final Holder.Reference<ItemContentsProvider.Type> METAL_BUNDLE_ITEM_CONTENTS_PROVIDER_TYPE = REGISTRIES.register(
             ItemContentsProvider.REGISTRY_KEY,
             "metal_bundle",
@@ -45,6 +47,10 @@ public class ModRegistry {
     }
 
     private static Map<DyeColor, Holder.Reference<Item>> registerMetalBundleItems(String path) {
+        return registerMetalBundleItems(path, Item.Properties::new);
+    }
+
+    private static Map<DyeColor, Holder.Reference<Item>> registerMetalBundleItems(String path, Supplier<Item.Properties> itemPropertiesSupplier) {
         EnumMap<DyeColor, Holder.Reference<Item>> bundleItems = new EnumMap<>(DyeColor.class);
         for (DyeColor dyeColor : DyeColor.values()) {
             String s = dyeColor.getName() + "_" + path;
@@ -53,7 +59,8 @@ public class ModRegistry {
                             (Item.Properties properties) -> new MetalBundleItem(MetalBundles.id(s + "_open_front"),
                                     MetalBundles.id(s + "_open_back"),
                                     properties),
-                            () -> new Item.Properties().stacksTo(1)
+                            () -> itemPropertiesSupplier.get()
+                                    .stacksTo(1)
                                     .component(DataComponents.BUNDLE_CONTENTS, BundleContents.EMPTY)));
         }
         return Maps.immutableEnumMap(bundleItems);
