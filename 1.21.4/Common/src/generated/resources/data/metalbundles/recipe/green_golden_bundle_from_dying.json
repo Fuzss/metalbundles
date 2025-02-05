@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:crafting_transmute",
+  "category": "equipment",
+  "group": "golden_bundles",
+  "input": "#metalbundles:golden_bundles",
+  "material": "minecraft:green_dye",
+  "result": "metalbundles:green_golden_bundle"
+}

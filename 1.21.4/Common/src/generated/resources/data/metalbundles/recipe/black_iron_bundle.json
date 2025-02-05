@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:crafting_transmute",
+  "category": "equipment",
+  "group": "iron_bundles",
+  "input": "metalbundles:black_copper_bundle",
+  "material": "minecraft:iron_ingot",
+  "result": "metalbundles:black_iron_bundle"
+}

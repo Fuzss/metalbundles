@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:crafting_transmute",
+  "category": "equipment",
+  "group": "diamond_bundles",
+  "input": "#metalbundles:diamond_bundles",
+  "material": "minecraft:black_dye",
+  "result": "metalbundles:black_diamond_bundle"
+}

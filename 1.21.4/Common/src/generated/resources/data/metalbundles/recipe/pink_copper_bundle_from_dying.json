@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:crafting_transmute",
+  "category": "equipment",
+  "group": "copper_bundles",
+  "input": "#metalbundles:copper_bundles",
+  "material": "minecraft:pink_dye",
+  "result": "metalbundles:pink_copper_bundle"
+}
