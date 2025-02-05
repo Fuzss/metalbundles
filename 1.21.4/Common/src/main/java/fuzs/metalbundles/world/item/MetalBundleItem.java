@@ -5,7 +5,6 @@ import fuzs.iteminteractions.api.v1.provider.ItemContentsBehavior;
 import fuzs.metalbundles.init.ModRegistry;
 import fuzs.metalbundles.world.item.container.MetalBundleProvider;
 import net.minecraft.core.component.DataComponents;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.ARGB;
 import net.minecraft.util.Mth;
 import net.minecraft.world.item.BundleItem;
@@ -17,8 +16,8 @@ public class MetalBundleItem extends BundleItem {
     private static final int FULL_BAR_COLOR = ARGB.colorFromFloat(1.0F, 1.0F, 0.33F, 0.33F);
     private static final int BAR_COLOR = ARGB.colorFromFloat(1.0F, 0.44F, 0.53F, 1.0F);
 
-    public MetalBundleItem(ResourceLocation openFrontModel, ResourceLocation openBackModel, Properties properties) {
-        super(openFrontModel, openBackModel, properties);
+    public MetalBundleItem(Properties properties) {
+        super(properties);
     }
 
     @Override

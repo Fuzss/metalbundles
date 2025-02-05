@@ -10,6 +10,7 @@ import fuzs.puzzleslib.api.init.v3.tags.TagFactory;
 import net.minecraft.core.Holder;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.tags.TagKey;
+import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.component.BundleContents;
@@ -34,6 +35,8 @@ public class ModRegistry {
             ItemContentsProvider.REGISTRY_KEY,
             "metal_bundle",
             () -> new ItemContentsProvider.Type(MetalBundleProvider.CODEC));
+    public static final Holder.Reference<CreativeModeTab> CREATIVE_MODE_TAB = REGISTRIES.registerCreativeModeTab(
+            GOLDEN_BUNDLE_ITEMS.get(DyeColor.RED));
 
     static final TagFactory TAGS = TagFactory.make(MetalBundles.MOD_ID);
     public static final TagKey<Item> COPPER_BUNDLES_ITEM_TAG_KEY = TAGS.registerItemTag("copper_bundles");
@@ -56,9 +59,7 @@ public class ModRegistry {
             String s = dyeColor.getName() + "_" + path;
             bundleItems.put(dyeColor,
                     REGISTRIES.registerItem(s,
-                            (Item.Properties properties) -> new MetalBundleItem(MetalBundles.id(s + "_open_front"),
-                                    MetalBundles.id(s + "_open_back"),
-                                    properties),
+                            MetalBundleItem::new,
                             () -> itemPropertiesSupplier.get()
                                     .stacksTo(1)
                                     .component(DataComponents.BUNDLE_CONTENTS, BundleContents.EMPTY)));

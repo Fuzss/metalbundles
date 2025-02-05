@@ -22,7 +22,7 @@ public class ModItemTagProvider extends AbstractTagProvider<Item> {
 
     @Override
     public void addTags(HolderLookup.Provider registries) {
-        this.add(ItemTags.BUNDLES)
+        this.tag(ItemTags.BUNDLES)
                 .addTag(ModRegistry.COPPER_BUNDLES_ITEM_TAG_KEY)
                 .addTag(ModRegistry.IRON_BUNDLES_ITEM_TAG_KEY)
                 .addTag(ModRegistry.GOLDEN_BUNDLES_ITEM_TAG_KEY)
@@ -36,7 +36,7 @@ public class ModItemTagProvider extends AbstractTagProvider<Item> {
     }
 
     private void addMetalBundleTag(TagKey<Item> tagKey, Map<DyeColor, Holder.Reference<Item>> bundleItems) {
-        AbstractTagAppender<Item> tagAppender = this.add(tagKey);
+        AbstractTagAppender<Item> tagAppender = this.tag(tagKey);
         for (Holder.Reference<Item> holder : bundleItems.values()) {
             tagAppender.add(holder);
         }
