@@ -1,7 +1,7 @@
-// 1.21.4	2025-02-05T11:47:36.983257	Tags for minecraft:item mod id vanilla
-b4e893428bf414a3290563b35d5daf5befe84fcd data/metalbundles/tags/item/copper_bundles.json
-658de40bc95f3385c70a85cd58b12725a4883f09 data/metalbundles/tags/item/diamond_bundles.json
-a89b10600f626b43a0bc8b127e6b4b1c03ec3d28 data/metalbundles/tags/item/golden_bundles.json
-91cc1d3a2209ac370e469d3c05cd20628c01655e data/metalbundles/tags/item/iron_bundles.json
-943584cde48dadf679c7901198794facdd99ecf4 data/metalbundles/tags/item/netherite_bundles.json
-c78eef2a37132546a9c7e56bca21ebd2cf970e45 data/minecraft/tags/item/bundles.json
+// 1.21.4	2025-03-09T23:14:44.144984	Tags for minecraft:item mod id vanilla
+c78eef2a37132546a9c7e56bca21ebd2cf970e45 data/metalbundles/tags/item/bundles.json
+0abedf6e132824098ce5dbcab19a72fa0d8cda32 data/metalbundles/tags/item/copper_bundles.json
+bf6f7d1fc541942aed7fe7bce5f7a954f4846278 data/metalbundles/tags/item/diamond_bundles.json
+3bb2ad0497bfd6a1b6afea47f170a49cf06438ab data/metalbundles/tags/item/golden_bundles.json
+99cd757bf6e473d8445ab7a871280d9ff35b8887 data/metalbundles/tags/item/iron_bundles.json
+9a84e0d911f7999d80099a2a3416ea545164a833 data/metalbundles/tags/item/netherite_bundles.json

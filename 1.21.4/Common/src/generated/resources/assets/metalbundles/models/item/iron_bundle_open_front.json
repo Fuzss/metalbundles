@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "minecraft:item/bundle_open_front",
+    "layer1": "metalbundles:item/iron_bundle_open_string"
+  }
+}

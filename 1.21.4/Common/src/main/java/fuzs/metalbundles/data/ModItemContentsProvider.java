@@ -21,19 +21,22 @@ public class ModItemContentsProvider extends AbstractItemContentsProvider {
 
     @Override
     public void addItemProviders(HolderLookup.Provider registries) {
-        HolderLookup.RegistryLookup<Item> items = registries.lookupOrThrow(Registries.ITEM);
-        this.add(items, ModRegistry.COPPER_BUNDLE_ITEMS);
-        this.add(items, ModRegistry.IRON_BUNDLE_ITEMS);
-        this.add(items, ModRegistry.GOLDEN_BUNDLE_ITEMS);
-        this.add(items, ModRegistry.DIAMOND_BUNDLE_ITEMS);
-        this.add(items, ModRegistry.NETHERITE_BUNDLE_ITEMS);
+        HolderLookup.RegistryLookup<Item> itemLookup = registries.lookupOrThrow(Registries.ITEM);
+        this.add(itemLookup, ModRegistry.COPPER_BUNDLE_ITEM, ModRegistry.COPPER_BUNDLE_ITEMS);
+        this.add(itemLookup, ModRegistry.IRON_BUNDLE_ITEM, ModRegistry.IRON_BUNDLE_ITEMS);
+        this.add(itemLookup, ModRegistry.GOLDEN_BUNDLE_ITEM, ModRegistry.GOLDEN_BUNDLE_ITEMS);
+        this.add(itemLookup, ModRegistry.DIAMOND_BUNDLE_ITEM, ModRegistry.DIAMOND_BUNDLE_ITEMS);
+        this.add(itemLookup, ModRegistry.NETHERITE_BUNDLE_ITEM, ModRegistry.NETHERITE_BUNDLE_ITEMS);
     }
 
-    public void add(HolderLookup.RegistryLookup<Item> items, Map<DyeColor, Holder.Reference<Item>> bundleItems) {
+    public void add(HolderLookup.RegistryLookup<Item> itemLookup, Holder.Reference<Item> bundleItem, Map<DyeColor, Holder.Reference<Item>> bundleItems) {
+        this.add(itemLookup, DyeColor.BROWN, bundleItem);
         for (Map.Entry<DyeColor, Holder.Reference<Item>> entry : bundleItems.entrySet()) {
-            this.add(items,
-                    new MetalBundleProvider(DyeBackedColor.fromDyeColor(entry.getKey())),
-                    entry.getValue().value());
+            this.add(itemLookup, entry.getKey(), entry.getValue());
         }
+    }
+
+    public void add(HolderLookup.RegistryLookup<Item> items, DyeColor dyeColor, Holder.Reference<Item> itemLookup) {
+        this.add(items, new MetalBundleProvider(DyeBackedColor.fromDyeColor(dyeColor)), itemLookup.value());
     }
 }

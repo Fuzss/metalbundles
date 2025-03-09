@@ -21,13 +21,19 @@ import java.util.function.Supplier;
 
 public class ModRegistry {
     static final RegistryManager REGISTRIES = RegistryManager.from(MetalBundles.MOD_ID);
+    public static final Holder.Reference<Item> COPPER_BUNDLE_ITEM = registerMetalBundleItem("copper_bundle");
     public static final Map<DyeColor, Holder.Reference<Item>> COPPER_BUNDLE_ITEMS = registerMetalBundleItems(
             "copper_bundle");
+    public static final Holder.Reference<Item> IRON_BUNDLE_ITEM = registerMetalBundleItem("iron_bundle");
     public static final Map<DyeColor, Holder.Reference<Item>> IRON_BUNDLE_ITEMS = registerMetalBundleItems("iron_bundle");
+    public static final Holder.Reference<Item> GOLDEN_BUNDLE_ITEM = registerMetalBundleItem("golden_bundle");
     public static final Map<DyeColor, Holder.Reference<Item>> GOLDEN_BUNDLE_ITEMS = registerMetalBundleItems(
             "golden_bundle");
+    public static final Holder.Reference<Item> DIAMOND_BUNDLE_ITEM = registerMetalBundleItem("diamond_bundle");
     public static final Map<DyeColor, Holder.Reference<Item>> DIAMOND_BUNDLE_ITEMS = registerMetalBundleItems(
             "diamond_bundle");
+    public static final Holder.Reference<Item> NETHERITE_BUNDLE_ITEM = registerMetalBundleItem("netherite_bundle",
+            () -> new Item.Properties().fireResistant());
     public static final Map<DyeColor, Holder.Reference<Item>> NETHERITE_BUNDLE_ITEMS = registerMetalBundleItems(
             "netherite_bundle",
             () -> new Item.Properties().fireResistant());
@@ -39,6 +45,7 @@ public class ModRegistry {
             GOLDEN_BUNDLE_ITEMS.get(DyeColor.RED));
 
     static final TagFactory TAGS = TagFactory.make(MetalBundles.MOD_ID);
+    public static final TagKey<Item> BUNDLES_ITEM_TAG_KEY = TAGS.registerItemTag("bundles");
     public static final TagKey<Item> COPPER_BUNDLES_ITEM_TAG_KEY = TAGS.registerItemTag("copper_bundles");
     public static final TagKey<Item> IRON_BUNDLES_ITEM_TAG_KEY = TAGS.registerItemTag("iron_bundles");
     public static final TagKey<Item> GOLDEN_BUNDLES_ITEM_TAG_KEY = TAGS.registerItemTag("golden_bundles");
@@ -57,13 +64,20 @@ public class ModRegistry {
         EnumMap<DyeColor, Holder.Reference<Item>> bundleItems = new EnumMap<>(DyeColor.class);
         for (DyeColor dyeColor : DyeColor.values()) {
             String s = dyeColor.getName() + "_" + path;
-            bundleItems.put(dyeColor,
-                    REGISTRIES.registerItem(s,
-                            MetalBundleItem::new,
-                            () -> itemPropertiesSupplier.get()
-                                    .stacksTo(1)
-                                    .component(DataComponents.BUNDLE_CONTENTS, BundleContents.EMPTY)));
+            bundleItems.put(dyeColor, registerMetalBundleItem(s, itemPropertiesSupplier));
         }
         return Maps.immutableEnumMap(bundleItems);
+    }
+
+    private static Holder.Reference<Item> registerMetalBundleItem(String path) {
+        return registerMetalBundleItem(path, Item.Properties::new);
+    }
+
+    private static Holder.Reference<Item> registerMetalBundleItem(String path, Supplier<Item.Properties> itemPropertiesSupplier) {
+        return REGISTRIES.registerItem(path,
+                MetalBundleItem::new,
+                () -> itemPropertiesSupplier.get()
+                        .stacksTo(1)
+                        .component(DataComponents.BUNDLE_CONTENTS, BundleContents.EMPTY));
     }
 }

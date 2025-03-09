@@ -28,24 +28,34 @@ public class ModRecipeProvider extends AbstractRecipeProvider {
     @Override
     public void addRecipes(RecipeOutput recipeOutput) {
         this.bundleRecipes(ModRegistry.COPPER_BUNDLES_ITEM_TAG_KEY,
-                getVanillaBundleItems(),
                 Items.COPPER_INGOT,
+                Items.BUNDLE.builtInRegistryHolder(),
+                ModRegistry.COPPER_BUNDLE_ITEM,
+                getVanillaBundleItems(),
                 ModRegistry.COPPER_BUNDLE_ITEMS);
         this.bundleRecipes(ModRegistry.IRON_BUNDLES_ITEM_TAG_KEY,
-                ModRegistry.COPPER_BUNDLE_ITEMS,
                 Items.IRON_INGOT,
+                ModRegistry.COPPER_BUNDLE_ITEM,
+                ModRegistry.IRON_BUNDLE_ITEM,
+                ModRegistry.COPPER_BUNDLE_ITEMS,
                 ModRegistry.IRON_BUNDLE_ITEMS);
         this.bundleRecipes(ModRegistry.GOLDEN_BUNDLES_ITEM_TAG_KEY,
-                ModRegistry.IRON_BUNDLE_ITEMS,
                 Items.GOLD_INGOT,
+                ModRegistry.IRON_BUNDLE_ITEM,
+                ModRegistry.GOLDEN_BUNDLE_ITEM,
+                ModRegistry.IRON_BUNDLE_ITEMS,
                 ModRegistry.GOLDEN_BUNDLE_ITEMS);
         this.bundleRecipes(ModRegistry.DIAMOND_BUNDLES_ITEM_TAG_KEY,
-                ModRegistry.GOLDEN_BUNDLE_ITEMS,
                 Items.DIAMOND,
+                ModRegistry.GOLDEN_BUNDLE_ITEM,
+                ModRegistry.DIAMOND_BUNDLE_ITEM,
+                ModRegistry.GOLDEN_BUNDLE_ITEMS,
                 ModRegistry.DIAMOND_BUNDLE_ITEMS);
         this.bundleRecipes(ModRegistry.NETHERITE_BUNDLES_ITEM_TAG_KEY,
-                ModRegistry.DIAMOND_BUNDLE_ITEMS,
                 Items.NETHERITE_INGOT,
+                ModRegistry.DIAMOND_BUNDLE_ITEM,
+                ModRegistry.NETHERITE_BUNDLE_ITEM,
+                ModRegistry.DIAMOND_BUNDLE_ITEMS,
                 ModRegistry.NETHERITE_BUNDLE_ITEMS);
     }
 
@@ -55,21 +65,31 @@ public class ModRecipeProvider extends AbstractRecipeProvider {
                         (DyeColor dyeColor) -> BundleItem.getByColor(dyeColor).builtInRegistryHolder()));
     }
 
-    private void bundleRecipes(TagKey<Item> tagKey, Map<DyeColor, Holder.Reference<Item>> bundleIngredientItems, Item item, Map<DyeColor, Holder.Reference<Item>> bundleResultItems) {
-        this.bundleRecipes(tagKey.location().getPath(), bundleIngredientItems, item, bundleResultItems);
+    private void bundleRecipes(TagKey<Item> tagKey, Item ingredientItem, Holder.Reference<Item> bundleIngredientItem, Holder.Reference<Item> bundleResultItem, Map<DyeColor, Holder.Reference<Item>> bundleIngredientItems, Map<DyeColor, Holder.Reference<Item>> bundleResultItems) {
+        this.bundleRecipes(tagKey.location().getPath(),
+                ingredientItem,
+                bundleIngredientItem,
+                bundleResultItem,
+                bundleIngredientItems,
+                bundleResultItems);
         this.bundleDyeRecipes(tagKey, bundleResultItems);
     }
 
-    private void bundleRecipes(String recipeGroup, Map<DyeColor, Holder.Reference<Item>> bundleIngredientItems, Item item, Map<DyeColor, Holder.Reference<Item>> bundleResultItems) {
+    private void bundleRecipes(String recipeGroup, Item ingredientItem, Holder.Reference<Item> bundleIngredientItem, Holder.Reference<Item> bundleResultItem, Map<DyeColor, Holder.Reference<Item>> bundleIngredientItems, Map<DyeColor, Holder.Reference<Item>> bundleResultItems) {
+        this.bundleRecipe(recipeGroup, ingredientItem, bundleIngredientItem, bundleResultItem);
         for (Map.Entry<DyeColor, Holder.Reference<Item>> entry : bundleIngredientItems.entrySet()) {
-            TransmuteRecipeBuilder.transmute(RecipeCategory.TOOLS,
-                            Ingredient.of(entry.getValue().value()),
-                            Ingredient.of(item),
-                            bundleResultItems.get(entry.getKey()).value())
-                    .group(recipeGroup)
-                    .unlockedBy(getHasName(item), this.has(item))
-                    .save(this.output);
+            this.bundleRecipe(recipeGroup, ingredientItem, entry.getValue(), bundleResultItems.get(entry.getKey()));
         }
+    }
+
+    private void bundleRecipe(String recipeGroup, Item ingredientItem, Holder.Reference<Item> bundleIngredientItem, Holder.Reference<Item> bundleResultItem) {
+        TransmuteRecipeBuilder.transmute(RecipeCategory.TOOLS,
+                        Ingredient.of(bundleIngredientItem.value()),
+                        Ingredient.of(ingredientItem),
+                        bundleResultItem.value())
+                .group(recipeGroup)
+                .unlockedBy(getHasName(ingredientItem), this.has(ingredientItem))
+                .save(this.output);
     }
 
     private void bundleDyeRecipes(TagKey<Item> tagKey, Map<DyeColor, Holder.Reference<Item>> bundleItems) {
