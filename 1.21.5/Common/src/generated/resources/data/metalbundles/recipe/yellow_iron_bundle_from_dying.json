@@ -4,5 +4,7 @@
   "group": "iron_bundles",
   "input": "#metalbundles:iron_bundles",
   "material": "minecraft:yellow_dye",
-  "result": "metalbundles:yellow_iron_bundle"
+  "result": {
+    "id": "metalbundles:yellow_iron_bundle"
+  }
 }

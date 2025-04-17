@@ -4,5 +4,7 @@
   "group": "copper_bundles",
   "input": "minecraft:bundle",
   "material": "minecraft:copper_ingot",
-  "result": "metalbundles:copper_bundle"
+  "result": {
+    "id": "metalbundles:copper_bundle"
+  }
 }

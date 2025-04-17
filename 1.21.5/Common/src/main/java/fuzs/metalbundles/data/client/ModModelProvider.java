@@ -3,12 +3,13 @@ package fuzs.metalbundles.data.client;
 import fuzs.metalbundles.MetalBundles;
 import fuzs.metalbundles.init.ModRegistry;
 import fuzs.puzzleslib.api.client.data.v2.AbstractModelProvider;
+import fuzs.puzzleslib.api.client.data.v2.models.ItemModelGenerationHelper;
 import fuzs.puzzleslib.api.client.data.v2.models.ModelLocationHelper;
-import fuzs.puzzleslib.api.client.data.v2.models.ModelTemplateHelper;
 import fuzs.puzzleslib.api.data.v2.core.DataProviderContext;
 import net.minecraft.client.data.models.ItemModelGenerators;
 import net.minecraft.client.data.models.model.ItemModelUtils;
 import net.minecraft.client.data.models.model.ModelTemplates;
+import net.minecraft.client.renderer.item.BundleSelectedItemSpecialRenderer;
 import net.minecraft.client.renderer.item.ItemModel;
 import net.minecraft.client.renderer.item.properties.conditional.BundleHasSelectedItem;
 import net.minecraft.client.renderer.item.properties.select.DisplayContext;
@@ -54,8 +55,8 @@ public class ModModelProvider extends AbstractModelProvider {
     }
 
     public final void createMetalBundleItem(ItemModelGenerators itemModelGenerators, Item bundleItem, Map<DyeColor, Holder.Reference<Item>> bundleItems, String string, String openString) {
-        ResourceLocation stringResourceLocation = MetalBundles.id(string);
-        ResourceLocation openStringResourceLocation = MetalBundles.id(openString);
+        ResourceLocation stringResourceLocation = ModelLocationHelper.getItemTexture(MetalBundles.id(string));
+        ResourceLocation openStringResourceLocation = ModelLocationHelper.getItemTexture(MetalBundles.id(openString));
         this.createMetalBundleItem(itemModelGenerators,
                 bundleItem,
                 Items.BUNDLE,
@@ -74,23 +75,26 @@ public class ModModelProvider extends AbstractModelProvider {
      * Partially copied from {@link ItemModelGenerators#generateBundleModels(Item)}.
      */
     public final void createMetalBundleItem(ItemModelGenerators itemModelGenerators, Item bundleItem, Item vanillaBundleItem, ResourceLocation stringResourceLocation, ResourceLocation openStringResourceLocation) {
-        ResourceLocation resourceLocation = ModelTemplateHelper.generateLayeredItem(bundleItem,
-                ModelLocationHelper.getItemLocation(vanillaBundleItem),
+        ResourceLocation resourceLocation = ItemModelGenerationHelper.createLayeredItemModel(bundleItem,
+                ModelLocationHelper.getItemTexture(vanillaBundleItem),
                 stringResourceLocation,
+                ModelTemplates.TWO_LAYERED_ITEM,
                 itemModelGenerators.modelOutput);
-        ResourceLocation openBackResourceLocation = ModelTemplateHelper.generateFlatItem(ModelLocationHelper.getItemLocation(
-                        bundleItem).withSuffix("_open_back"),
-                ModelLocationHelper.getItemLocation(vanillaBundleItem).withSuffix("_open_back"),
+        ResourceLocation openBackResourceLocation = ItemModelGenerationHelper.createFlatItemModel(ModelLocationHelper.getItemModel(
+                        bundleItem,
+                        "_open_back"),
+                ModelLocationHelper.getItemTexture(vanillaBundleItem, "_open_back"),
                 ModelTemplates.FLAT_ITEM,
                 itemModelGenerators.modelOutput);
-        ResourceLocation openFrontResourceLocation = ModelTemplateHelper.generateLayeredItem(ModelLocationHelper.getItemLocation(
-                        bundleItem).withSuffix("_open_front"),
-                ModelLocationHelper.getItemLocation(vanillaBundleItem).withSuffix("_open_front"),
+        ResourceLocation openFrontResourceLocation = ItemModelGenerationHelper.createLayeredItemModel(
+                ModelLocationHelper.getItemModel(bundleItem, "_open_front"),
+                ModelLocationHelper.getItemTexture(vanillaBundleItem, "_open_front"),
                 openStringResourceLocation,
+                ModelTemplates.TWO_LAYERED_ITEM,
                 itemModelGenerators.modelOutput);
         ItemModel.Unbaked unbaked = ItemModelUtils.plainModel(resourceLocation);
         ItemModel.Unbaked unbaked2 = ItemModelUtils.composite(ItemModelUtils.plainModel(openBackResourceLocation),
-                new net.minecraft.client.renderer.item.BundleSelectedItemSpecialRenderer.Unbaked(),
+                new BundleSelectedItemSpecialRenderer.Unbaked(),
                 ItemModelUtils.plainModel(openFrontResourceLocation));
         ItemModel.Unbaked unbaked3 = ItemModelUtils.conditional(new BundleHasSelectedItem(), unbaked2, unbaked);
         itemModelGenerators.itemModelOutput.accept(bundleItem,

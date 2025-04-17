@@ -4,5 +4,7 @@
   "group": "netherite_bundles",
   "input": "metalbundles:black_diamond_bundle",
   "material": "minecraft:netherite_ingot",
-  "result": "metalbundles:black_netherite_bundle"
+  "result": {
+    "id": "metalbundles:black_netherite_bundle"
+  }
 }

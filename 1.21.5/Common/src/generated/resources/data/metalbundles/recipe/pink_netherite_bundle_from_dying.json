@@ -4,5 +4,7 @@
   "group": "netherite_bundles",
   "input": "#metalbundles:netherite_bundles",
   "material": "minecraft:pink_dye",
-  "result": "metalbundles:pink_netherite_bundle"
+  "result": {
+    "id": "metalbundles:pink_netherite_bundle"
+  }
 }

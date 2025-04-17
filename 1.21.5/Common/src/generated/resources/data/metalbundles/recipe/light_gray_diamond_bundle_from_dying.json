@@ -4,5 +4,7 @@
   "group": "diamond_bundles",
   "input": "#metalbundles:diamond_bundles",
   "material": "minecraft:light_gray_dye",
-  "result": "metalbundles:light_gray_diamond_bundle"
+  "result": {
+    "id": "metalbundles:light_gray_diamond_bundle"
+  }
 }

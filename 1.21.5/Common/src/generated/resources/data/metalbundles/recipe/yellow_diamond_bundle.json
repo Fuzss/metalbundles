@@ -4,5 +4,7 @@
   "group": "diamond_bundles",
   "input": "metalbundles:yellow_golden_bundle",
   "material": "minecraft:diamond",
-  "result": "metalbundles:yellow_diamond_bundle"
+  "result": {
+    "id": "metalbundles:yellow_diamond_bundle"
+  }
 }

@@ -19,7 +19,7 @@ public class ModLanguageProvider extends AbstractLanguageProvider {
 
     @Override
     public void addTranslations(TranslationBuilder builder) {
-        builder.addCreativeModeTab(MetalBundles.MOD_ID, MetalBundles.MOD_NAME);
+        builder.add(ModRegistry.CREATIVE_MODE_TAB.value(), MetalBundles.MOD_NAME);
         addMetalBundles(builder, ModRegistry.COPPER_BUNDLE_ITEM, ModRegistry.COPPER_BUNDLE_ITEMS, "Copper Bundle");
         addMetalBundles(builder, ModRegistry.IRON_BUNDLE_ITEM, ModRegistry.IRON_BUNDLE_ITEMS, "Iron Bundle");
         addMetalBundles(builder, ModRegistry.GOLDEN_BUNDLE_ITEM, ModRegistry.GOLDEN_BUNDLE_ITEMS, "Golden Bundle");

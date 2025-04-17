@@ -4,5 +4,7 @@
   "group": "golden_bundles",
   "input": "metalbundles:brown_iron_bundle",
   "material": "minecraft:gold_ingot",
-  "result": "metalbundles:brown_golden_bundle"
+  "result": {
+    "id": "metalbundles:brown_golden_bundle"
+  }
 }

@@ -37,12 +37,12 @@ public class ModRegistry {
     public static final Map<DyeColor, Holder.Reference<Item>> NETHERITE_BUNDLE_ITEMS = registerMetalBundleItems(
             "netherite_bundle",
             () -> new Item.Properties().fireResistant());
-    public static final Holder.Reference<ItemContentsProvider.Type> METAL_BUNDLE_ITEM_CONTENTS_PROVIDER_TYPE = REGISTRIES.register(
+    public static final Holder.Reference<ItemContentsProvider.Type<?>> METAL_BUNDLE_ITEM_CONTENTS_PROVIDER_TYPE = REGISTRIES.register(
             ItemContentsProvider.REGISTRY_KEY,
             "metal_bundle",
-            () -> new ItemContentsProvider.Type(MetalBundleProvider.CODEC));
+            () -> new ItemContentsProvider.Type<>(MetalBundleProvider.CODEC));
     public static final Holder.Reference<CreativeModeTab> CREATIVE_MODE_TAB = REGISTRIES.registerCreativeModeTab(
-            GOLDEN_BUNDLE_ITEMS.get(DyeColor.RED));
+            IRON_BUNDLE_ITEMS.get(DyeColor.ORANGE));
 
     static final TagFactory TAGS = TagFactory.make(MetalBundles.MOD_ID);
     public static final TagKey<Item> BUNDLES_ITEM_TAG_KEY = TAGS.registerItemTag("bundles");
