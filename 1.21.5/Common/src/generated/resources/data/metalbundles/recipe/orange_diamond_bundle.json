@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:crafting_transmute",
+  "category": "equipment",
+  "group": "diamond_bundles",
+  "input": "metalbundles:orange_golden_bundle",
+  "material": "minecraft:diamond",
+  "result": "metalbundles:orange_diamond_bundle"
+}
