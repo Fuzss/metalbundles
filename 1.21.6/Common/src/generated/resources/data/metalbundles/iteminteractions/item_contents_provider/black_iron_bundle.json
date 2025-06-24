@@ -1,0 +1,5 @@
+{
+  "type": "metalbundles:metal_bundle",
+  "background_color": "black",
+  "supported_items": "metalbundles:black_iron_bundle"
+}

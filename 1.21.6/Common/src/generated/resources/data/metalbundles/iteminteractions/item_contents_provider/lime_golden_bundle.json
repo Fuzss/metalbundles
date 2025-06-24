@@ -1,0 +1,5 @@
+{
+  "type": "metalbundles:metal_bundle",
+  "background_color": "lime",
+  "supported_items": "metalbundles:lime_golden_bundle"
+}

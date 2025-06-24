@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "minecraft:item/white_bundle",
+    "layer1": "metalbundles:item/copper_bundle_string"
+  }
+}
