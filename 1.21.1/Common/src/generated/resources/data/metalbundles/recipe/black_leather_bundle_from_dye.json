@@ -1,0 +1,19 @@
+{
+  "type": "metalbundles:copy_components_shapeless_recipe",
+  "category": "equipment",
+  "copy_from": {
+    "tag": "metalbundles:leather_bundles"
+  },
+  "ingredients": [
+    {
+      "tag": "metalbundles:leather_bundles"
+    },
+    {
+      "item": "minecraft:black_dye"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "metalbundles:black_leather_bundle"
+  }
+}

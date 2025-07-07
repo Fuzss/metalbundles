@@ -1,0 +1,15 @@
+{
+  "parent": "minecraft:item/generated",
+  "overrides": [
+    {
+      "model": "metalbundles:item/gray_golden_bundle_filled",
+      "predicate": {
+        "metalbundles:filled": 1.0
+      }
+    }
+  ],
+  "textures": {
+    "layer0": "metalbundles:item/gray_bundle",
+    "layer1": "metalbundles:item/golden_bundle_open_string"
+  }
+}

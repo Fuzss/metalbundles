@@ -1,0 +1,14 @@
+{
+  "parent": "minecraft:item/generated",
+  "overrides": [
+    {
+      "model": "metalbundles:item/netherite_bundle_filled",
+      "predicate": {
+        "metalbundles:filled": 1.0
+      }
+    }
+  ],
+  "textures": {
+    "layer0": "metalbundles:item/netherite_bundle"
+  }
+}

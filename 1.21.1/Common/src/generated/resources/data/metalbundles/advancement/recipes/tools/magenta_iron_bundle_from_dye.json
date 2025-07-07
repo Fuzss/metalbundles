@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_iron": {
+      "conditions": {
+        "items": [
+          {
+            "items": "metalbundles:iron_bundle"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "metalbundles:magenta_iron_bundle_from_dye"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_iron"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "metalbundles:magenta_iron_bundle_from_dye"
+    ]
+  }
+}

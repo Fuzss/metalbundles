@@ -1,0 +1,24 @@
+{
+  "type": "metalbundles:copy_components_shaped_recipe",
+  "category": "equipment",
+  "copy_from": {
+    "item": "metalbundles:black_golden_bundle"
+  },
+  "key": {
+    "#": {
+      "item": "minecraft:diamond"
+    },
+    "X": {
+      "item": "metalbundles:black_golden_bundle"
+    }
+  },
+  "pattern": [
+    " # ",
+    "#X#",
+    " # "
+  ],
+  "result": {
+    "count": 1,
+    "id": "metalbundles:black_diamond_bundle"
+  }
+}
