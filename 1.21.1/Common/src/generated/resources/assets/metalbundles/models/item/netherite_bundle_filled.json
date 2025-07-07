@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:item/generated",
-  "textures": {
-    "layer0": "metalbundles:item/netherite_bundle_filled"
-  }
-}

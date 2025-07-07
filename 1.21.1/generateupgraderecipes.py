@@ -24,6 +24,10 @@ DYE_COLORS = [
 def make_recipe(dye: str, from_tier: str, to_tier: str, material: str):
     return {
         "type": "metalbundles:copy_components_shaped_recipe",
+        "category": "equipment",
+        "copy_from": {
+            "tag": f"metalbundles:{from_tier}_bundles"
+        },
         "pattern": [
             " # ",
             "#X#",
@@ -34,9 +38,9 @@ def make_recipe(dye: str, from_tier: str, to_tier: str, material: str):
             "X": {"tag": f"metalbundles:{from_tier}_bundles"}
         },
         "result": {
-            "item": f"metalbundles:{dye}_{to_tier}_bundle"
-        },
-        "copy_from": "X"
+            "id": f"metalbundles:{dye}_{to_tier}_bundle",
+            "count": 1
+        }
     }
 
 # Generate one recipe per dye per upgrade step

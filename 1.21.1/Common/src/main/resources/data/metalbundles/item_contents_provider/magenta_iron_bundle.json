@@ -1,7 +1,0 @@
-{
-  "type": "metalbundles:metal_bundle",
-  "background_color": "#C74EBD",
-  "bundle_type": "iron",
-  "disallowed_item_contents": [],
-  "supported_items": "metalbundles:magenta_iron_bundle"
-}

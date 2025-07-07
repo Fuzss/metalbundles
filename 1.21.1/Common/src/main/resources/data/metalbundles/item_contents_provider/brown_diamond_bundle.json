@@ -1,7 +1,0 @@
-{
-  "type": "metalbundles:metal_bundle",
-  "background_color": "#835432",
-  "bundle_type": "diamond",
-  "disallowed_item_contents": [],
-  "supported_items": "metalbundles:brown_diamond_bundle"
-}

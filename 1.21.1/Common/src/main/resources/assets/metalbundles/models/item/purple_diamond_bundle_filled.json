@@ -1,7 +1,0 @@
-{
-  "parent": "minecraft:item/generated",
-  "textures": {
-    "layer0": "metalbundles:item/purple_bundle_filled",
-    "layer1": "metalbundles:item/diamond_bundle_string"
-  }
-}
