@@ -35,6 +35,7 @@ public class ModModelProvider extends AbstractModelProvider {
         createMetalBundleItem(builder, ModRegistry.NETHERITE_BUNDLE_ITEM.value());
     }
 
+
     private static void createMetalBundleItem(ItemModelGenerators builder, Item item) {
         createMetalBundleItem(builder, item, item);
     }
