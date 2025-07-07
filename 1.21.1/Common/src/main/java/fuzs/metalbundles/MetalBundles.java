@@ -9,6 +9,8 @@ import fuzs.puzzleslib.api.core.v1.context.CreativeModeTabContext;
 import fuzs.puzzleslib.api.core.v1.utility.ResourceLocationHelper;
 import fuzs.puzzleslib.api.item.v2.CreativeModeTabConfigurator;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.Item;
+import net.minecraft.core.Holder;
 import net.minecraft.world.item.ItemStack;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -36,6 +38,10 @@ public class MetalBundles implements ModConstructor {
                     output.accept(ModRegistry.GOLDEN_BUNDLE_ITEM.value());
                     output.accept(ModRegistry.DIAMOND_BUNDLE_ITEM.value());
                     output.accept(ModRegistry.NETHERITE_BUNDLE_ITEM.value());
+
+                    for (Holder.Reference<Item> ref: ModRegistry.DYED_BUNDLE_ITEMS) {
+                        output.accept(ref.value());
+                    }
                 }));
     }
 
