@@ -1,0 +1,7 @@
+{
+  "type": "metalbundles:metal_bundle",
+  "background_color": "#80C71F",
+  "bundle_type": "netherite",
+  "disallowed_item_contents": [],
+  "supported_items": "metalbundles:lime_netherite_bundle"
+}
