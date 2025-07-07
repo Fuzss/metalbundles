@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_green_golden_bundle": {
+      "conditions": {
+        "items": [
+          {
+            "items": "metalbundles:green_golden_bundle"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "metalbundles:green_golden_bundle_to_green_diamond_bundle"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_green_golden_bundle"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "metalbundles:green_golden_bundle_to_green_diamond_bundle"
+    ]
+  }
+}

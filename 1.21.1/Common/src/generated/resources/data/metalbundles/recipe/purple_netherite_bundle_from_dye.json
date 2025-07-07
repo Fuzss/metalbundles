@@ -1,0 +1,19 @@
+{
+  "type": "metalbundles:copy_components_shapeless_recipe",
+  "category": "equipment",
+  "copy_from": {
+    "tag": "metalbundles:netherite_bundles"
+  },
+  "ingredients": [
+    {
+      "tag": "metalbundles:netherite_bundles"
+    },
+    {
+      "item": "minecraft:purple_dye"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "metalbundles:purple_netherite_bundle"
+  }
+}

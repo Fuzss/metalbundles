@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "metalbundles:white_diamond_bundle_to_white_netherite_bundle"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_white_diamond_bundle": {
+      "conditions": {
+        "items": [
+          {
+            "items": "metalbundles:white_diamond_bundle"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_white_diamond_bundle"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "metalbundles:white_diamond_bundle_to_white_netherite_bundle"
+    ]
+  }
+}

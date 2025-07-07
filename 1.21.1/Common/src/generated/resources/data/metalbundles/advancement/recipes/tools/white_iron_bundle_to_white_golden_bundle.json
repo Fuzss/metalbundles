@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "metalbundles:white_iron_bundle_to_white_golden_bundle"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_white_iron_bundle": {
+      "conditions": {
+        "items": [
+          {
+            "items": "metalbundles:white_iron_bundle"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_white_iron_bundle"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "metalbundles:white_iron_bundle_to_white_golden_bundle"
+    ]
+  }
+}

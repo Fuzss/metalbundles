@@ -1,0 +1,19 @@
+{
+  "type": "metalbundles:copy_components_shapeless_recipe",
+  "category": "equipment",
+  "copy_from": {
+    "item": "metalbundles:lime_diamond_bundle"
+  },
+  "ingredients": [
+    {
+      "item": "metalbundles:lime_diamond_bundle"
+    },
+    {
+      "item": "minecraft:netherite_ingot"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "metalbundles:lime_netherite_bundle"
+  }
+}

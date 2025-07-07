@@ -1,0 +1,24 @@
+{
+  "type": "metalbundles:copy_components_shaped_recipe",
+  "category": "equipment",
+  "copy_from": {
+    "item": "metalbundles:white_copper_bundle"
+  },
+  "key": {
+    "#": {
+      "item": "minecraft:iron_ingot"
+    },
+    "X": {
+      "item": "metalbundles:white_copper_bundle"
+    }
+  },
+  "pattern": [
+    " # ",
+    "#X#",
+    " # "
+  ],
+  "result": {
+    "count": 1,
+    "id": "metalbundles:white_iron_bundle"
+  }
+}

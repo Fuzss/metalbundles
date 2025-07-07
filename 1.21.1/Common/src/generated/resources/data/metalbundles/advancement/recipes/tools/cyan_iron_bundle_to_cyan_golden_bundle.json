@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_cyan_iron_bundle": {
+      "conditions": {
+        "items": [
+          {
+            "items": "metalbundles:cyan_iron_bundle"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "metalbundles:cyan_iron_bundle_to_cyan_golden_bundle"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_cyan_iron_bundle"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "metalbundles:cyan_iron_bundle_to_cyan_golden_bundle"
+    ]
+  }
+}

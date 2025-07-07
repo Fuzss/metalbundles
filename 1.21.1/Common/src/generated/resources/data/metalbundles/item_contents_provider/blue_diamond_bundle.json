@@ -1,0 +1,7 @@
+{
+  "type": "metalbundles:metal_bundle",
+  "background_color": "blue",
+  "bundle_type": "diamond",
+  "disallowed_item_contents": [],
+  "supported_items": "metalbundles:blue_diamond_bundle"
+}

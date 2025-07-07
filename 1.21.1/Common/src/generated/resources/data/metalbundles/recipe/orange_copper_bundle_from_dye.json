@@ -1,0 +1,19 @@
+{
+  "type": "metalbundles:copy_components_shapeless_recipe",
+  "category": "equipment",
+  "copy_from": {
+    "tag": "metalbundles:copper_bundles"
+  },
+  "ingredients": [
+    {
+      "tag": "metalbundles:copper_bundles"
+    },
+    {
+      "item": "minecraft:orange_dye"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "metalbundles:orange_copper_bundle"
+  }
+}

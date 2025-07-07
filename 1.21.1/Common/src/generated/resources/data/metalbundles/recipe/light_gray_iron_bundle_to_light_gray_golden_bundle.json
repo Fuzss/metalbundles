@@ -1,0 +1,24 @@
+{
+  "type": "metalbundles:copy_components_shaped_recipe",
+  "category": "equipment",
+  "copy_from": {
+    "item": "metalbundles:light_gray_iron_bundle"
+  },
+  "key": {
+    "#": {
+      "item": "minecraft:gold_ingot"
+    },
+    "X": {
+      "item": "metalbundles:light_gray_iron_bundle"
+    }
+  },
+  "pattern": [
+    " # ",
+    "#X#",
+    " # "
+  ],
+  "result": {
+    "count": 1,
+    "id": "metalbundles:light_gray_golden_bundle"
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_cyan_copper_bundle": {
+      "conditions": {
+        "items": [
+          {
+            "items": "metalbundles:cyan_copper_bundle"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "metalbundles:cyan_copper_bundle_to_cyan_iron_bundle"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_cyan_copper_bundle"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "metalbundles:cyan_copper_bundle_to_cyan_iron_bundle"
+    ]
+  }
+}

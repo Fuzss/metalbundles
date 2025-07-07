@@ -1,0 +1,19 @@
+{
+  "type": "metalbundles:copy_components_shapeless_recipe",
+  "category": "equipment",
+  "copy_from": {
+    "tag": "metalbundles:iron_bundles"
+  },
+  "ingredients": [
+    {
+      "tag": "metalbundles:iron_bundles"
+    },
+    {
+      "item": "minecraft:black_dye"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "metalbundles:black_iron_bundle"
+  }
+}
