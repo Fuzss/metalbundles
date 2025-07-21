@@ -1,5 +1,9 @@
 {
   "type": "metalbundles:metal_bundle",
   "background_color": "magenta",
+  "item_contents": {
+    "disallow": true,
+    "filter_container_items": true
+  },
   "supported_items": "metalbundles:magenta_netherite_bundle"
 }

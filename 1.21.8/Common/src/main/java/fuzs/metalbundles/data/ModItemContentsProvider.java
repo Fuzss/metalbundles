@@ -37,6 +37,8 @@ public class ModItemContentsProvider extends AbstractItemContentsProvider {
     }
 
     public void add(HolderLookup.RegistryLookup<Item> items, DyeColor dyeColor, Holder.Reference<Item> itemLookup) {
-        this.add(items, new MetalBundleProvider(DyeBackedColor.fromDyeColor(dyeColor)), itemLookup.value());
+        this.add(items,
+                new MetalBundleProvider(DyeBackedColor.fromDyeColor(dyeColor)).filterContainerItems(true),
+                itemLookup.value());
     }
 }

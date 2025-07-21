@@ -1,5 +1,9 @@
 {
   "type": "metalbundles:metal_bundle",
   "background_color": "light_gray",
+  "item_contents": {
+    "disallow": true,
+    "filter_container_items": true
+  },
   "supported_items": "metalbundles:light_gray_copper_bundle"
 }

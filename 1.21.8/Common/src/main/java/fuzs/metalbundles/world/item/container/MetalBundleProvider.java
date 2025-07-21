@@ -31,6 +31,11 @@ public class MetalBundleProvider extends BundleProvider {
     }
 
     @Override
+    public MetalBundleProvider filterContainerItems(boolean filterContainerItems) {
+        return (MetalBundleProvider) super.filterContainerItems(filterContainerItems);
+    }
+
+    @Override
     public Fraction getCapacityMultiplier(ItemStack containerStack) {
         int capacityMultiplier = this.getConfigurableCapacityMultiplier(containerStack);
         if (capacityMultiplier != -1) {

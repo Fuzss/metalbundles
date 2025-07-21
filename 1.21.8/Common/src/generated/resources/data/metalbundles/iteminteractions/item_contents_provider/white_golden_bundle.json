@@ -1,5 +1,9 @@
 {
   "type": "metalbundles:metal_bundle",
   "background_color": "white",
+  "item_contents": {
+    "disallow": true,
+    "filter_container_items": true
+  },
   "supported_items": "metalbundles:white_golden_bundle"
 }
