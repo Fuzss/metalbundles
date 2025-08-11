@@ -1,21 +1,21 @@
 {
   "values": [
-    "metalbundles:netherite_bundle",
-    "metalbundles:white_netherite_bundle",
-    "metalbundles:orange_netherite_bundle",
-    "metalbundles:magenta_netherite_bundle",
-    "metalbundles:light_blue_netherite_bundle",
-    "metalbundles:yellow_netherite_bundle",
-    "metalbundles:lime_netherite_bundle",
-    "metalbundles:pink_netherite_bundle",
-    "metalbundles:gray_netherite_bundle",
-    "metalbundles:light_gray_netherite_bundle",
-    "metalbundles:cyan_netherite_bundle",
-    "metalbundles:purple_netherite_bundle",
+    "metalbundles:black_netherite_bundle",
     "metalbundles:blue_netherite_bundle",
     "metalbundles:brown_netherite_bundle",
+    "metalbundles:cyan_netherite_bundle",
+    "metalbundles:gray_netherite_bundle",
     "metalbundles:green_netherite_bundle",
+    "metalbundles:light_blue_netherite_bundle",
+    "metalbundles:light_gray_netherite_bundle",
+    "metalbundles:lime_netherite_bundle",
+    "metalbundles:magenta_netherite_bundle",
+    "metalbundles:netherite_bundle",
+    "metalbundles:orange_netherite_bundle",
+    "metalbundles:pink_netherite_bundle",
+    "metalbundles:purple_netherite_bundle",
     "metalbundles:red_netherite_bundle",
-    "metalbundles:black_netherite_bundle"
+    "metalbundles:white_netherite_bundle",
+    "metalbundles:yellow_netherite_bundle"
   ]
 }

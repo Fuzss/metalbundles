@@ -1,21 +1,21 @@
 {
   "values": [
-    "metalbundles:diamond_bundle",
-    "metalbundles:white_diamond_bundle",
-    "metalbundles:orange_diamond_bundle",
-    "metalbundles:magenta_diamond_bundle",
-    "metalbundles:light_blue_diamond_bundle",
-    "metalbundles:yellow_diamond_bundle",
-    "metalbundles:lime_diamond_bundle",
-    "metalbundles:pink_diamond_bundle",
-    "metalbundles:gray_diamond_bundle",
-    "metalbundles:light_gray_diamond_bundle",
-    "metalbundles:cyan_diamond_bundle",
-    "metalbundles:purple_diamond_bundle",
+    "metalbundles:black_diamond_bundle",
     "metalbundles:blue_diamond_bundle",
     "metalbundles:brown_diamond_bundle",
+    "metalbundles:cyan_diamond_bundle",
+    "metalbundles:diamond_bundle",
+    "metalbundles:gray_diamond_bundle",
     "metalbundles:green_diamond_bundle",
+    "metalbundles:light_blue_diamond_bundle",
+    "metalbundles:light_gray_diamond_bundle",
+    "metalbundles:lime_diamond_bundle",
+    "metalbundles:magenta_diamond_bundle",
+    "metalbundles:orange_diamond_bundle",
+    "metalbundles:pink_diamond_bundle",
+    "metalbundles:purple_diamond_bundle",
     "metalbundles:red_diamond_bundle",
-    "metalbundles:black_diamond_bundle"
+    "metalbundles:white_diamond_bundle",
+    "metalbundles:yellow_diamond_bundle"
   ]
 }
