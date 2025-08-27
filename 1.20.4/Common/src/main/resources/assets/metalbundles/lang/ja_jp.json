@@ -1,0 +1,9 @@
+{
+  "item.metalbundles.copper_bundle": "銅のバンドル",
+  "item.metalbundles.diamond_bundle": "ダイヤモンドのバンドル",
+  "item.metalbundles.golden_bundle": "金のバンドル",
+  "item.metalbundles.iron_bundle": "鉄のバンドル",
+  "item.metalbundles.leather_bundle": "革のバンドル",
+  "item.metalbundles.netherite_bundle": "ネザライトのバンドル",
+  "itemGroup.metalbundles.main": "バンドル"
+}
