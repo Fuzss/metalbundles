@@ -1,0 +1,9 @@
+{
+  "type": "metalbundles:metal_bundle",
+  "background_color": "purple",
+  "item_contents": {
+    "disallow": true,
+    "filter_container_items": true
+  },
+  "supported_items": "metalbundles:purple_golden_bundle"
+}
