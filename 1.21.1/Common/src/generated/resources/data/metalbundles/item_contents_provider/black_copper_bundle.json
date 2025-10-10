@@ -1,0 +1,7 @@
+{
+  "type": "metalbundles:metal_bundle",
+  "background_color": "black",
+  "bundle_type": "copper",
+  "disallowed_item_contents": [],
+  "supported_items": "metalbundles:black_copper_bundle"
+}

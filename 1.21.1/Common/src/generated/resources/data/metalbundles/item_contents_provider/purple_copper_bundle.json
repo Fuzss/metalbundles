@@ -1,0 +1,7 @@
+{
+  "type": "metalbundles:metal_bundle",
+  "background_color": "purple",
+  "bundle_type": "copper",
+  "disallowed_item_contents": [],
+  "supported_items": "metalbundles:purple_copper_bundle"
+}

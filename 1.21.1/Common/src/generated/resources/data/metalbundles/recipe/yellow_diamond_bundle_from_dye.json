@@ -1,0 +1,19 @@
+{
+  "type": "metalbundles:copy_components_shapeless_recipe",
+  "category": "equipment",
+  "copy_from": {
+    "tag": "metalbundles:diamond_bundles"
+  },
+  "ingredients": [
+    {
+      "tag": "metalbundles:diamond_bundles"
+    },
+    {
+      "item": "minecraft:yellow_dye"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "metalbundles:yellow_diamond_bundle"
+  }
+}
