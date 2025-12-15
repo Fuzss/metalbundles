@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:crafting_transmute",
+  "category": "equipment",
+  "group": "iron_bundles",
+  "input": "#metalbundles:iron_bundles",
+  "material": "minecraft:white_dye",
+  "result": {
+    "id": "metalbundles:white_iron_bundle"
+  }
+}
