@@ -9,7 +9,7 @@ import fuzs.metalbundles.config.ServerConfig;
 import fuzs.metalbundles.init.ModRegistry;
 import net.minecraft.world.item.ItemStack;
 import org.apache.commons.lang3.math.Fraction;
-import org.jetbrains.annotations.Nullable;
+import org.jspecify.annotations.Nullable;
 
 import java.util.Optional;
 
